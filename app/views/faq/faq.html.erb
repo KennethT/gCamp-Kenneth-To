@@ -13,8 +13,7 @@
   <% @q_and_a.each do |question, answer| %>
   <a id="<%= question.slug %>"></a>
   <p><h5><%= question.question %> </h5></p>
-    <br>
-    <p> <%= question.answer %> </p>
+    <%= question.answer %><br>
     <%= link_to "Top", "#top" %>
     <% end %>
   </div>
