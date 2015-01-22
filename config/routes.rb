@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'faq' => 'faq#faq'
   get 'about' => 'about#about'
+  get 'terms'=> 'terms#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
