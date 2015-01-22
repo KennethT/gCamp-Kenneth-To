@@ -1,20 +1,22 @@
-<h1 id="top">Frequently Asked Questions</h1>
-<hr>
-<div>
-  <% @q_and_a.each do |question| %>
-  <p><li><%= link_to question.question, "#"+ question.slug %> </u></p>
 
+<div class = "container">
+<h1 >Frequently Asked Questions</h1>
+<hr>
+<ul>
+  <% @q_and_a.each do |question| %>
+  <li><%= link_to question.question, "#"+ question.slug %> </u>
   <% end %>
-</div>
+</ul>
 
 
 <div>
   <% @q_and_a.each do |question, answer| %>
-  <a id="<%= question.slug %>">
-  <p><h3><%= question.question %> </h3></p>
+  <a id="<%= question.slug %>"></a>
+  <p><h5><%= question.question %> </h5></p>
     <br>
     <p> <%= question.answer %> </p>
-    <br>
     <%= link_to "Top", "#top" %>
     <% end %>
   </div>
+
+</div>
