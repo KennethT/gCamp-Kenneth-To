@@ -1,6 +1,6 @@
 class FaqController < ApplicationController
 
-def faq
+def index
   one = CommonQuestions.new
 
   one.question = "What is gCamp?"
