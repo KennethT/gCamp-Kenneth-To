@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>GCampKennethTo</title>
-  <%= stylesheet_link_tag    'application' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
+  <head>
+    <title>GCampKennethTo</title>
+    <%= stylesheet_link_tag    'application' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -19,9 +18,10 @@
           </button>
           <a class="navbar-brand" href="#">gCamp</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
 
-        </div><!--/.navbar-collapse -->
+        <div id="navbar" class="navbar-collapse collapse">
+        </div>
+        <!--/.navbar-collapse -->
       </div>
     </nav>
     <div class="container">
@@ -29,6 +29,7 @@
     <hr>
     <footer>
       <div class="row">
+
         <div class="col-md-6">
           <a href="/about">About</a>
           |
@@ -52,9 +53,10 @@
           <a href="https://students.gschool.it/students/212">
             <%= image_tag("galvanize.png", class: "img-footer") %>
           </a>
-          </div>
         </div>
-      </footer>
+
+      </div>
+    </footer>
     </div>
 
     <!-- Bootstrap core JavaScript
@@ -65,8 +67,5 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 
-
-
-
-</body>
+  </body>
 </html>
