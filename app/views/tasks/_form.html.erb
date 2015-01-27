@@ -11,17 +11,15 @@
     </div>
   <% end %>
 
-
-
-
 <div class="container">
 
 <ol class="breadcrumb">
   <li><a href="/tasks">Tasks</a></li>
+  <li><%= link_to @task.description, @task %></li>
   <li class="active"><%= @task.description %></li>
 </ol>
 
-<form accept-charset="UTF-8" action="/tasks" class="form-horizontal" id="new_task" method="post"><div style="display:none"></div>
+<form accept-charset="UTF-8" action="/tasks" class="form-horizontal" id="new_task" method="post">
 
   <div class="form-group row">
     <%= f.label :description, :class => "control-label col-md-2" %>
@@ -42,9 +40,8 @@
       <div class="control-label col-md-2">
         <label>Completed?</label>
       </div>
-
       <div class="control-label col-md-4">
-        <%= f.check_box :complete, { :checked => 'true'} %>
+        <%= f.check_box :complete %>
       </div>
         <% end %>
     </div>
@@ -54,7 +51,6 @@
         <%= link_to 'Cancel', tasks_path, class: 'btn btn-default' %>
       </div>
     </div>
-
 
   </div>
 </form>
