@@ -5,19 +5,20 @@
     <div class = "pull-right">
       <%= link_to 'Edit', edit_task_path, class: 'btn btn-info' %>
     </div>
-    <h1>Finish Homework</h1>
+    <h1><%= @task.description %></h1>
   </div>
 
 
 <font color><p id="notice">
-  <div class="alert alert-success">
+  <% if flash[:notice] %>
+  <div class="alert alert-success text-center"><%= flash[:notice] %><% end %>
   <%= notice %>
   </div>
   </p></font>
 
   <ol class="breadcrumb">
     <li><%= link_to 'Tasks', task_path %></li>
-    <li class="active">Finish Homework</li>
+    <li class="active"><%= @task.description %></li>
   </ol>
 
 <!-- <p>
