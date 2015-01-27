@@ -1,6 +1,13 @@
 <div class = "container">
   <br>
 
+  <font color><p id="notice">
+    <% if flash[:notice] %>
+    <div class="alert alert-success text-center"><%= flash[:notice] %><% end %>
+      <%= notice %>
+    </div>
+  </p></font>
+
   <div class="page-header">
     <div class = "pull-right">
       <%= link_to 'Edit', edit_task_path, class: 'btn btn-info' %>
@@ -8,16 +15,8 @@
     <h1><%= @task.description %></h1>
   </div>
 
-
-<font color><p id="notice">
-  <% if flash[:notice] %>
-  <div class="alert alert-success text-center"><%= flash[:notice] %><% end %>
-  <%= notice %>
-  </div>
-  </p></font>
-
   <ol class="breadcrumb">
-    <li><%= link_to 'Tasks', task_path %></li>
+    <li><a href="/tasks">Tasks</a></li>
     <li class="active"><%= @task.description %></li>
   </ol>
 
