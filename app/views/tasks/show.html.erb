@@ -22,4 +22,11 @@
     <li class="active"><%= @task.description %></li>
   </ol>
 
+
+  <div class="container">
+  <strong>Due On</strong>
+  <%= @task.date.to_s.gsub("-","/") %>
+  </div>
+
+
 </div>
