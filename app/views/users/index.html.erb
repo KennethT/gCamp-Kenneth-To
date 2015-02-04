@@ -17,8 +17,7 @@
       <tr>
         <td><%= user.first_name %> <%= user.last_name %></td>
         <td><%= link_to user.email, user  %></td>
-        <td class="text-right"><%= link_to 'Edit', edit_user_path(user), class: 'btn btn-info' %>
-            <%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %></td>
+        
       </tr>
     <% end %>
   </tbody>
