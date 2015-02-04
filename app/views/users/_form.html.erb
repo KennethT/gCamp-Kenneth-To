@@ -1,17 +1,23 @@
 <%= form_for @user do |f| %>
 
-<%= f.label :first_name %>
+<%= f.label :first_name, :class => "control-label col-md-2" %>
 <%= f.text_field :first_name %><br>
 
-<%= f.label :last_name %>
+<%= f.label :last_name, :class => "control-label col-md-2" %>
 <%= f.text_field :last_name %><br>
 
-<%= f.label :email %>
+<%= f.label :email, :class => "control-label col-md-2" %>
 <%= f.email_field :email %><br>
 
-<%= f.submit %>
+<br>
+
+<div class="form-group">
+ <div class="col-md-4 col-md-offset-2">
+   <div class="action">
+     <%= f.submit "Create User", class:"btn btn-primary"%>
+     <%= link_to 'Cancel', users_path, class:"btn btn-default" %>
+   </div>
+ </div>
+</div>
 
 <% end %>
-
-
-<%= link_to 'Cancel', users_path, class: 'btn btn-default' %>
