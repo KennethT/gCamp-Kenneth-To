@@ -1,0 +1,28 @@
+<div class="container">
+
+  <font color>
+    <div id="notice">
+      <% if flash[:notice] %>
+      <div class="alert alert-success text-center">
+      <%= flash[:notice] %>
+      <% end %>
+    </div>
+    </div>
+  </font>
+
+  <div class="page-header">
+    <div class = "pull-right">
+      <%= link_to 'Edit', edit_user_path, class: 'btn btn-info' %>
+    </div>
+    <h1><%= @user.description %></h1>
+  </div>
+
+  <ol class="breadcrumb">
+    <li><a href="/tasks">Users</a></li>
+    <li class="active"><%= @user.first_name %></li>
+  </ol>
+
+
+
+
+</div>
