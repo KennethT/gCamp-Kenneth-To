@@ -1,4 +1,9 @@
-<h1>Editing User</h1>
+<div class="page-header">
+  <div class="pull-right">
+    <%= link_to 'Delete', @user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %>
+  </div>
+  <h1>Editing User</h1>
+</div>
 
 <ol class="breadcrumb">
   <li><%= link_to 'Users', users_path %></li>
