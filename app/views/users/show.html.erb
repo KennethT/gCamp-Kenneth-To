@@ -10,11 +10,16 @@
   </div>
 
   <ol class="breadcrumb">
-    <li><a href="/tasks">Users</a></li>
+    <li><a href="/users">Users</a></li>
     <li class="active"><%= @user.first_name %></li>
   </ol>
 
+  <dl class="dl-horizontal">
+  <dt>First Name</dt> <dd><%= @user.first_name %></dd>
 
+  <dt>Last Name</dt> <dd><%= @user.last_name %></dd>
 
+  <dt>Email</dt> <dd><%= mail_to @user.email %></dd>
+  </dl>
 
 </div>
