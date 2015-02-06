@@ -1,0 +1,13 @@
+<div class="page-header">
+  <div class="pull-right">
+    <%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %>
+  </div>
+  <h1>Editing Project</h1>
+</div>
+
+<ol class="breadcrumb">
+  <li><%= link_to 'Projects', projects_path %></li>
+  <li><%= link_to @project.name, @project %></li>
+</ol>
+
+<%= render 'form' %>
