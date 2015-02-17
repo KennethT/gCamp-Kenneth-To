@@ -1,15 +1,30 @@
+<%= form_for(@project) do |f| %>
+<% if @project.errors.any? %>
+<div id="error_explanation" class="alert alert-danger text-center">
+  <h4><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h4>
+
+  <ul>
+    <% @project.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<% end %>
+
+
 <%= form_for @project do |f| %>
 
 <div class="form-group">
-<%= f.label :name, class: "control-label col-md-2" %>
-<%= f.text_field :name, class: "col-md-4" %><br>
+  <%= f.label :name, class: "control-label col-md-2" %>
+  <%= f.text_field :name, class: "col-md-4" %><br>
 </div>
 <br>
 
 
 <div class="form-group">
-<%= f.submit class:"btn btn-primary col-md-offset-2"%>
-<%= link_to 'Cancel', projects_path, class:"btn btn-default" %>
+  <%= f.submit class:"btn btn-primary col-md-offset-2"%>
+  <%= link_to 'Cancel', projects_path, class:"btn btn-default" %>
 </div>
 
 
