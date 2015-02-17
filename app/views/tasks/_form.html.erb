@@ -1,6 +1,6 @@
 <%= form_for(@task) do |f| %>
   <% if @task.errors.any? %>
-    <div id="error_explanation" class="alert alert-danger text-center">
+    <div id="error_explanation" class="alert alert-danger col-md-offset-2">
       <h4><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h4>
 
       <ul>

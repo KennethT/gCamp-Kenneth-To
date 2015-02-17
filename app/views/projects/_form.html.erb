@@ -1,6 +1,6 @@
-<%= form_for(@project) do |f| %>
+
 <% if @project.errors.any? %>
-<div id="error_explanation" class="alert alert-danger text-center">
+<div id="error_explanation" class="alert alert-danger col-md-offset-2">
   <h4><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h4>
 
   <ul>
@@ -9,7 +9,6 @@
     <% end %>
   </ul>
 </div>
-<% end %>
 <% end %>
 
 
