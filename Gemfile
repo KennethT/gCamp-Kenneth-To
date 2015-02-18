@@ -43,6 +43,7 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'rspec-rails'
   gem 'capybara'
+  gem "spring-commands-rspec"
 
 
   # Access an IRB console on exception pages or by using <%= console %> in views
