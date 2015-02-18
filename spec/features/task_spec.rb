@@ -24,4 +24,15 @@ describe 'User can CRUD tasks' do
     expect(page).to have_content("Task was successfully created")
   end
 
+  #create task for events to appear in
+  scenario 'User can view a show page for a task' do
+
+      @task = Task.create(description: "Cow", date: "2014-01-01")
+      visit "/tasks/#{@task.id}"
+
+      #expect to see flash notice of successfully creation of event
+      expect(page).to have_content("Cow")
+    end
+
+
 end
