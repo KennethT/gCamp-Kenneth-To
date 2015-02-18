@@ -43,13 +43,28 @@ describe 'User can CRUD tasks' do
     fill_in 'task[description]', :with => "Dog"
 
     #submitting form to create a task
-    click_on "Create Task"
+    click_on "Update Task"
 
     #now we expect the index page to have the description of the task we created.
     expect(page).to have_content("Dog")
     # expecting the flash notification
-    expect(page).to have_content("Task was successfully updated")
-    
+    expect(page).to have_content("Task was successfully")
+
   end
+
+  scenario 'User can delete an task' do
+
+    @task = Task.create(description: "Cow", date: "2014-01-01")
+    visit "/tasks/"
+
+    #click on Delete
+    click_on "Delete"
+
+    # expecting the flash notification (code says Location but should say Event)
+    # test works but base code needs to be fixed
+    expect(page).to have_content("Task was successfully destroyed.")
+
+  end
+
 
 end
