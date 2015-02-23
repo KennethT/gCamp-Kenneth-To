@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :tasks, :users, :projects
+  resources :registrations, only: [:new, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -11,10 +12,16 @@ Rails.application.routes.draw do
   get 'about' => 'about#index'
   get 'terms'=> 'terms#index'
   get 'project' => 'project#index'
-
+  #sessions routes
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy'
+
+
+  # registration routes
+  get 'login' => 'registration#new'
+  post 'login' => 'registrations#create'
+
 
 
   # Example of regular route:
