@@ -40,7 +40,7 @@ describe 'User can CRUD users' do
     fill_in 'user[first_name]', :with => "Monkey"
     fill_in 'user[last_name]', :with => "Cat"
 
-    click_on "Sign Up"
+    click_on "Update User"
 
     expect(page).to have_content("Monkey")
     expect(page).to have_content("Cat")
