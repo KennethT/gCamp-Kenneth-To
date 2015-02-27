@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/KennethT/gCamp-Kenneth-To.svg?branch=master)](https://travis-ci.org/KennethT/gCamp-Kenneth-To)
+
 == README
 
 gCamp Project - Kenneth To
