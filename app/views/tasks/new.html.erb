@@ -2,10 +2,8 @@
 
 
 <ol class="breadcrumb">
-  <li><%= link_to 'Tasks', tasks_path %></li>
+  <li><%= link_to 'Tasks', project_tasks_path(@project) %></li>
   <li class="active">New Task</li>
 </ol>
 
 <%= render 'form' %>
-
-<!-- <%= link_to 'Back', tasks_path %> -->
