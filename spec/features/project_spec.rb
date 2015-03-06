@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'User can CRUD users' do
+describe 'User can CRUD projects' do
 
   scenario 'User can create a project' do
     visit '/'
@@ -38,7 +38,8 @@ describe 'User can CRUD users' do
     visit '/projects/new'
     fill_in 'project[name]', :with => "power"
     click_on "Create Project"
-    visit "/projects"
+    visit "/projects/"
+    click_on "power"
     click_on "Edit"
     fill_in 'project[name]', :with => "ranger"
     click_on "Update Project"
