@@ -2,6 +2,7 @@ class MembershipsController < ApplicationController
   before_action :authenticate
     def index
       @memberships = Membership.all
+      @project = Project.find(params[:project_id])
     end
 
     def show
@@ -46,7 +47,7 @@ class MembershipsController < ApplicationController
     end
 
     def membership_params
-    params.require(:membership).permit(:owner)
+    params.require(:membership).permit(:project_id, :user_id, :role)
     end
 
 
