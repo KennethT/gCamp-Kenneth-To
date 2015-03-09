@@ -15,8 +15,9 @@
     <li class="active"><%= @project.name %></li>
   </ol>
 
-  <dl class="dl-horizontal">
-  <dt>Name</dt> <dd><%= @project.name %></dd>
-  </dl>
+  <%= link_to @project.tasks.count.to_s + " Tasks", project_tasks_path(@project) %>
+  <br>
+  <br>
+  <%= link_to @project.memberships.count.to_s + " Memberships", project_memberships_path(@project) %>
 
 </div>
