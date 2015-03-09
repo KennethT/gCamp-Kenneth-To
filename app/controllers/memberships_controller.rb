@@ -3,6 +3,7 @@ class MembershipsController < ApplicationController
     def index
       @memberships = Membership.all
       @project = Project.find(params[:project_id])
+      @membership = @project.memberships.build
     end
 
     def show
@@ -28,6 +29,9 @@ class MembershipsController < ApplicationController
 
     def create
       @membership = Membership.new(membership_params)
+      @membership.project_id = @project.id
+      @project = Project.find(params[:project_id])
+
       if @membership.save
         redirect_to @membership, notice: 'Membership was successfully created.'
       else
