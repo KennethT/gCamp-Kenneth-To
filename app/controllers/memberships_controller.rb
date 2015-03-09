@@ -28,12 +28,13 @@ class MembershipsController < ApplicationController
     end
 
     def create
+      @project = Project.find(params[:project_id])
       @membership = Membership.new(membership_params)
       @membership.project_id = @project.id
-      @project = Project.find(params[:project_id])
+
 
       if @membership.save
-        redirect_to @membership, notice: 'Membership was successfully created.'
+        redirect_to project_memberships_path(@membership), notice: 'Membership was successfully created.'
       else
         render:new
       end
