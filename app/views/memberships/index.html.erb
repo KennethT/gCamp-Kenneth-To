@@ -18,3 +18,10 @@
   </input>
 </div>
 <% end %>
+
+
+<% @project.users.each do |member| %>
+  <%= link_to member.full_name, user_path(member) %>
+  <%= link_to '', project_membership_path(@project, member), method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-remove'  %>
+  <br>
+<% end %>
