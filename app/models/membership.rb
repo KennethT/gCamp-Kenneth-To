@@ -4,6 +4,6 @@ class Membership < ActiveRecord::Base
 
   enum role: { member: 0, owner: 1 }
 
+  validates :user_id, presence: true, uniqueness: true
   validates :role, presence: true
-
 end

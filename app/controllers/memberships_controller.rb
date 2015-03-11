@@ -10,9 +10,10 @@ class MembershipsController < ApplicationController
     @membership = Membership.new(membership_params)
     @membership.project_id = @project.id
     if @membership.save
-      redirect_to project_memberships_path(@project)
+      redirect_to project_memberships_path(@project), notice: "#{@membership.user.full_name} was successfully created"
     else
-      render 'new'
+      flash.now[:alert] = @membership.errors.full_messages
+      render :index
     end
   end
 
@@ -20,7 +21,7 @@ class MembershipsController < ApplicationController
     @project = Project.find(params[:project_id])
     @membership = Membership.find(params[:id])
      if @membership.destroy
-       redirect_to project_memberships_path(@project), notice: "#{@membership.user.full_name} was successfully destroyed"
+       redirect_to project_memberships_path(@project), notice: "#{@membership.user.full_name} was successfully removed"
      end
    end
 
