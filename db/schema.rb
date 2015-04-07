@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20150407200410) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.string  "comment"
+    t.text    "comment"
     t.integer "task_id"
   end
 
