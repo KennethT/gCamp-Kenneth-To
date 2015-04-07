@@ -14,7 +14,7 @@
   <tbody>
     <% @project.tasks.each do |task| %>
       <tr>
-        <td><%= link_to task.description, project_task_path(@project, task) %></td>
+        <td><%= link_to task.description, project_task_path(@project, task) %> <%= task.comments.count %></td>
         <td><%= task.date.to_s.gsub("-","/") %></td>
         <td class="text-right">
           <%= link_to 'Show', project_task_path(@project, task), class: 'btn btn-success' %>
