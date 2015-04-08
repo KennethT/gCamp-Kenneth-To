@@ -21,19 +21,25 @@
   </div>
 
   <% @comments.each do |comment| %>
-  <div class="col-md-3">
-    <%= comment.user.full_name %><br>
-    <%= time_ago_in_words(comment.created_at) %>
-  </div>
-  <div class="col-md-9">
-    <%= comment.comment %>
+  <div class="row">
+    <div class="col-md-3">
+      <%= comment.user.full_name %><br>
+      <div class="text-muted">
+        <%= time_ago_in_words(comment.created_at) %>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <%= comment.comment %>
+    </div>
   </div>
   <% end %>
 
+  <div class="col-md-9 pull-right">
   <%= form_for([@project, @task, @comment]) do |f| %>
-  <%= f.label :comment, class: "control-label col-md-3" %>
-  <%= f.text_area :comment, size: "90x12" %><br>
-  <div class="col-md-offset-3"><%= f.submit "Add Comment" %></div>
+  <%= f.label :comment %>
+  <%= f.text_area :comment, class: "form-control" %><br>
+  <%= f.submit "Add Comment" %>
   <% end %>
+  </div>
 
 </div>
