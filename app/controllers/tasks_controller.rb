@@ -11,6 +11,11 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
+    @user = current_user
+    @comment = Comment.new
+    @task = Task.find(params[:id])
+    @comments = @task.comments.all
+    @project = Project.find(params[:project_id])
   end
 
   # GET /tasks/new

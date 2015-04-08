@@ -8,8 +8,10 @@
   </div>
 
   <ol class="breadcrumb">
-    <li><a href="/project_tasks">Tasks</a></li>
-    <li class="active"><%= @task.description %></li>
+    <li><%= link_to "Projects", projects_path(@project) %></li>
+    <li><%= link_to @project.name, project_path(@project) %></li>
+    <li><%= link_to "Tasks", project_tasks_path(@project) %></li>
+    <li><%= @task.description %></li>
   </ol>
 
 
@@ -18,5 +20,20 @@
   <%= @task.date.to_s.gsub("-","/") %>
   </div>
 
+  <% @comments.each do |comment| %>
+  <div class="col-md-3">
+    <%= comment.user.full_name %><br>
+    <%= time_ago_in_words(comment.created_at) %>
+  </div>
+  <div class="col-md-9">
+    <%= comment.comment %>
+  </div>
+  <% end %>
+
+  <%= form_for([@project, @task, @comment]) do |f| %>
+  <%= f.label :comment, class: "control-label col-md-3" %>
+  <%= f.text_area :comment, size: "90x12" %><br>
+  <div class="col-md-offset-3"><%= f.submit "Add Comment" %></div>
+  <% end %>
 
 </div>
