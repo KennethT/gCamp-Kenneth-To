@@ -12,3 +12,11 @@
   </div>
 
   </div>
+<br>
+gCamp is extremely active.  Check out our killer stats below!
+<br>
+<%= pluralize(@projects.count, "Project") %>,
+<%= pluralize(@tasks.count, "Task") %>,
+<%= pluralize(@memberships.count, "Membership") %>,
+<%= pluralize(@users.count, "User") %>,
+<%= pluralize(@comments.count, "Comment") %>
