@@ -16,7 +16,9 @@ class CommentsController < ApplicationController
     @comment.task_id = @task.id
     @comment.user_id = current_user.id
       if @comment.save
-        redirect_to project_task_path(@project, @task), notice: 'Comment added.'
+        redirect_to project_task_path(@project, @task)
+      else
+        redirect_to :back
       end
   end
 
