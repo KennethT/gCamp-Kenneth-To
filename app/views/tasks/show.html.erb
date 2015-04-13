@@ -23,7 +23,11 @@
   <% @comments.each do |comment| %>
   <div class="row">
     <div class="col-md-3">
+      <% if comment.user %>
       <%= comment.user.full_name %><br>
+      <% else %>
+      <i>deleted user</i>
+      <% end %>
       <div class="text-muted">
         <%= time_ago_in_words(comment.created_at) %>
       </div>

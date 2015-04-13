@@ -38,6 +38,10 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
+    @user.comments.each do |comment|
+      comment.user_id = nil
+      comment.save
+    end
     @user.destroy
     redirect_to users_path, notice: 'User was successfully deleted.'
   end
