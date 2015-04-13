@@ -146,7 +146,7 @@ describe 'User can CRUD tasks' do
     select "January", :from => "task_date_2i"
     select "1", :from => "task_date_3i"
     click_on "Create Task"
-    click_on "Delete"
+    click_link("destroy")
     expect(page).to have_content("Task was successfully destroyed.")
 
   end
