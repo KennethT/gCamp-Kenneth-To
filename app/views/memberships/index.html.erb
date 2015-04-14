@@ -40,7 +40,11 @@
   <%= f.select(:role, [["Member", :member],["Owner", :owner]], {include_blank: false}, {class: "form-control"}) %>
   </div>
   <%= f.submit class: "btn btn-primary" %>
-  <%= link_to '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>'.html_safe, project_membership_path(@project, membership), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% if @project.memberships.where(role: 1).count == 1 && membership.role == "owner" %>
+    You are the last owner
+  <% else %>
+    <%= link_to '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>'.html_safe, project_membership_path(@project, membership), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
   <br>
 <% end %>
 <% end %>
