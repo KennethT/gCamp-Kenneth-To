@@ -28,10 +28,11 @@ class MembershipsController < ApplicationController
    def update
      @project = Project.find(params[:project_id])
      @membership = Membership.find(params[:id])
-     if @membership.update(membership_params)
-       redirect_to project_memberships_path(@project), notice: "#{@membership.user.full_name} was successfully updated"
+     if ((@project.memberships.where(role: 1).count == 1) && (@membership.role == "owner"))
+       redirect_to project_memberships_path(@project), notice: "Projects must have at least one owner"
      else
-       render :index
+       @membership.update(membership_params)
+       redirect_to project_memberships_path(@project), notice: "#{@membership.user.full_name} was successfully updated"
      end
    end
 
