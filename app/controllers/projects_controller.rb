@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  layout 'internal'
   before_action :authenticate
   def index
       @projects = Project.all
@@ -28,6 +29,7 @@ class ProjectsController < ApplicationController
     def create
       @project = Project.new(project_params)
       if @project.save
+        Membership.create(user_id: current_user.id, project_id: @project.id, role: 1)
         redirect_to @project, notice: 'Project was successfully created.'
       else
         render:new

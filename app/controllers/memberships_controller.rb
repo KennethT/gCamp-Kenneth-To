@@ -1,4 +1,5 @@
 class MembershipsController < ApplicationController
+  layout 'internal'
   def index
     @project = Project.find(params[:project_id])
     @membership = Membership.new

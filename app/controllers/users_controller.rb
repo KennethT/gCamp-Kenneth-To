@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+  layout 'internal'
   before_action :authenticate, except: [:create]
 
   def index
