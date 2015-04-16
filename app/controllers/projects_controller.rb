@@ -1,8 +1,17 @@
 class ProjectsController < ApplicationController
   layout 'internal'
   before_action :authenticate
+  before_action :projmember, only: [:edit, :update, :destroy, :show]
+
+  def projmember
+    @project = Project.find(params[:id])
+    unless @project.users.include?(current_user)
+      redirect_to projects_path(@path), notice: "You do not have access to that project"
+    end
+  end
+
   def index
-      @projects = Project.all
+      @projects = current_user.projects
     end
 
     def show
@@ -30,7 +39,7 @@ class ProjectsController < ApplicationController
       @project = Project.new(project_params)
       if @project.save
         Membership.create(user_id: current_user.id, project_id: @project.id, role: 1)
-        redirect_to @project, notice: 'Project was successfully created.'
+        redirect_to project_tasks_path(@project), notice: 'Project was successfully created.'
       else
         render:new
       end
