@@ -1,5 +1,14 @@
 class MembershipsController < ApplicationController
   layout 'internal'
+  before_action :projowner, only: [:edit, :update, :destroy]
+  
+  def projowner
+    @project = Project.find(params[:id])
+    unless Membership.find_by(project_id: @project, user_id: current_user, role: 1)
+      redirect_to project_path(@project), notice: "You do not have access"
+    end
+  end
+
   def index
     @project = Project.find(params[:project_id])
     @membership = Membership.new

@@ -24,8 +24,6 @@
         <td><%= link_to task.description, project_task_path(@project, task) %> <div class="badge"><%= task.comments.count %></div></td>
         <td><%= task.date.to_s.gsub("-","/") %></td>
         <td class="text-right">
-          <%= link_to 'Show', project_task_path(@project, task), class: 'btn btn-success' %>
-          <%= link_to 'Edit', edit_project_task_path(@project, task), class: 'btn btn-info' %>
           <%= link_to project_task_path(@project, task), id: "destroy", method: :delete, data: { confirm: 'Are you sure?' } do %>
           <span class="glyphicon glyphicon-remove" ></span>
           <% end %></td>
