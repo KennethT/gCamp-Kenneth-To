@@ -3,6 +3,16 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :set_project
   before_action :authenticate
+
+  before_action :projmember, only: [:edit, :update, :destroy, :show]
+
+  def projmember
+    @task = Task.find(params[:id])
+    @project = Project.find(params[:id])
+    unless @task.project.users.include?(current_user)
+      redirect_to projects_path(@path), notice: "You do not have access to that project"
+    end
+  end
   # GET /tasks
   # GET /tasks.json
   def index

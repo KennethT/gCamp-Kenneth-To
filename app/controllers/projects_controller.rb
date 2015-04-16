@@ -2,11 +2,19 @@ class ProjectsController < ApplicationController
   layout 'internal'
   before_action :authenticate
   before_action :projmember, only: [:edit, :update, :destroy, :show]
+  before_action :projowner, only: [:edit, :update, :destroy]
 
   def projmember
     @project = Project.find(params[:id])
     unless @project.users.include?(current_user)
-      redirect_to projects_path(@path), notice: "You do not have access to that project"
+      redirect_to projects_path(@project), notice: "You do not have access to that project"
+    end
+  end
+
+  def projowner
+    @project = Project.find(params[:id])
+    unless Membership.find_by(project_id: @project, user_id: current_user, role: 1)
+      redirect_to project_path(@project), notice: "You do not have access"
     end
   end
 
