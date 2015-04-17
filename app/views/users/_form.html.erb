@@ -26,10 +26,12 @@
          <%= f.label :password_confirmation %>
          <%= f.password_field :password_confirmation, class: 'form-control' %>
        </div>
+       <% if current_user.admin == true %>
        <div class="form-group">
          <%= f.label :admin %>
          <%= f.check_box :admin, class: 'form-control' %>
        </div>
+       <% end %>
          <div class="form-group">
          <%= f.submit class: "btn btn-primary" %>
        </div>
