@@ -20,12 +20,13 @@ describe 'Admin can CRUD everything of other users' do
     click_on "Create Project"
     click_on "Sign out"
 
+    User.create(first_name: 'admin', last_name: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true)
     visit '/login'
     fill_in 'email', :with => "admin@example.com"
     fill_in 'password', :with => "password"
     click_on "Login!"
     visit "/projects"
-    first(:link, "power").click 
+    first(:link, "power").click
     click_on "Edit"
     fill_in 'project[name]', :with => "ranger"
     click_on "Update Project"
@@ -50,7 +51,7 @@ describe 'Admin can CRUD everything of other users' do
     fill_in 'project[name]', :with => "power"
     click_on "Create Project"
     click_on "Sign out"
-
+    User.create(first_name: 'admin', last_name: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true)
     visit '/login'
     fill_in 'email', :with => "admin@example.com"
     fill_in 'password', :with => "password"
@@ -90,7 +91,7 @@ describe 'Admin can CRUD everything of other users' do
     select "1", :from => "task_date_3i"
     click_on "Create Task"
     click_on "Sign out"
-
+    User.create(first_name: 'admin', last_name: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true)
     visit '/login'
     fill_in 'email', :with => "admin@example.com"
     fill_in 'password', :with => "password"
@@ -137,7 +138,7 @@ describe 'Admin can CRUD everything of other users' do
     click_on "Create Task"
     click_on "Sign out"
 
-
+    User.create(first_name: 'admin', last_name: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true)
     visit '/login'
     fill_in 'email', :with => "admin@example.com"
     fill_in 'password', :with => "password"
@@ -165,7 +166,7 @@ describe 'Admin can CRUD everything of other users' do
     end
     click_on "Sign out"
 
-
+    User.create(first_name: 'admin', last_name: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true)
     visit '/login'
     fill_in 'email', :with => "admin@example.com"
     fill_in 'password', :with => "password"
@@ -198,7 +199,7 @@ describe 'Admin can CRUD everything of other users' do
     end
     click_on "Sign out"
 
-
+    User.create(first_name: 'admin', last_name: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true)
     visit '/login'
     fill_in 'email', :with => "admin@example.com"
     fill_in 'password', :with => "password"
