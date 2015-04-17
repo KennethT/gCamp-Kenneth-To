@@ -38,7 +38,7 @@ describe 'User can CRUD projects' do
     visit '/projects/new'
     fill_in 'project[name]', :with => "power"
     click_on "Create Project"
-    visit "/projects/"
+    visit "/users/"
     click_on "power"
     click_on "Edit"
     fill_in 'project[name]', :with => "ranger"

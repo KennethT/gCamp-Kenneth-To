@@ -42,7 +42,7 @@ describe 'User can CRUD tasks' do
     expect(page).to have_content("Task was successfully created")
   end
 
-  #create task for events to appear in
+  #create tasks
   scenario 'User can view a show page for a task' do
 
     visit '/'
@@ -69,13 +69,12 @@ describe 'User can CRUD tasks' do
 
     click_on "New Task"
     #filling out form for task
-    fill_in 'task[description]', :with => "Cow"
+    fill_in 'task[description]', :with => "bat"
     select "2014", :from => "task_date_1i"
     select "January", :from => "task_date_2i"
     select "1", :from => "task_date_3i"
     click_on "Create Task"
-    click_on "Show"
-    expect(page).to have_content("Edit")
+    expect(page).to have_content("Task was successfully created.")
   end
 
   #Users can edit an task
@@ -93,18 +92,14 @@ describe 'User can CRUD tasks' do
     click_on "Sign Up"
     end
 
-    visit '/projects/new'
+
     fill_in 'project[name]', :with => "power"
     click_on "Create Project"
-
-
-    visit '/projects/'
-
-    click_on '0'
+    expect(page).to have_content("power")
 
     click_on "New Task"
     #filling out form for task
-    fill_in 'task[description]', :with => "Cow"
+    fill_in 'task[description]', :with => "doggie"
     select "2014", :from => "task_date_1i"
     select "January", :from => "task_date_2i"
     select "1", :from => "task_date_3i"
