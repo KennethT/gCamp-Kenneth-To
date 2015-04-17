@@ -1,6 +1,6 @@
 class MembershipsController < ApplicationController
   layout 'internal'
-  before_action :projowner2, only: [:edit, :update, :destroy]
+  before_action :projowner2, only: [:edit, :update]
 
   def projowner2
     @project = Project.find(params[:project_id])
