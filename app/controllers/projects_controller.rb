@@ -6,14 +6,14 @@ class ProjectsController < ApplicationController
 
   def projmember
     @project = Project.find(params[:id])
-    unless @project.users.include?(current_user)
+    unless @project.users.include?(current_user) || admin_role
       redirect_to projects_path(@project), notice: "You do not have access to that project"
     end
   end
 
   def projowner
     @project = Project.find(params[:id])
-    unless Membership.find_by(project_id: @project, user_id: current_user, role: 1)
+    unless Membership.find_by(project_id: @project, user_id: current_user, role: 1) || admin_role
       redirect_to project_path(@project), notice: "You do not have access"
     end
   end
