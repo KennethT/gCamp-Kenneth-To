@@ -20,18 +20,18 @@ describe 'Admin can CRUD everything of other users' do
     click_on "Create Project"
     click_on "Sign out"
 
-    # all tests pass locally - can show in person, commenting out for now bc of travis ci issues
-    # User.create(first_name: 'admin', last_name: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true)
-    # visit '/login'
-    # fill_in 'email', :with => "admin@example.com"
-    # fill_in 'password', :with => "password"
-    # click_on "Login!"
-    # visit "/projects"
-    # first(:link, "power").click
-    # click_on "Edit"
-    # fill_in 'project[name]', :with => "ranger"
-    # click_on "Update Project"
-    # expect(page).to have_content("Project was successfully updated.")
+  
+    User.create(first_name: 'admin', last_name: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true)
+    visit '/login'
+    fill_in 'email', :with => "admin@example.com"
+    fill_in 'password', :with => "password"
+    click_on "Login!"
+    visit "/projects"
+    first(:link, "power").click
+    click_on "Edit"
+    fill_in 'project[name]', :with => "ranger"
+    click_on "Update Project"
+    expect(page).to have_content("Project was successfully updated.")
 
   end
 
@@ -49,21 +49,21 @@ describe 'Admin can CRUD everything of other users' do
     click_on "Sign Up"
     end
 
-    # passes locally - can show, commenting out for now
-    # visit '/projects/new'
-    # fill_in 'project[name]', :with => "power"
-    # click_on "Create Project"
-    # click_on "Sign out"
-    # User.create(first_name: 'admin', last_name: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true)
-    # visit '/login'
-    # fill_in 'email', :with => "admin@example.com"
-    # fill_in 'password', :with => "password"
-    # click_on "Login!"
-    # visit "/users/"
-    # click_on "power"
-    # click_on "Edit"
-    # click_on "Delete"
-    # expect(page).to have_content("Project was successfully destroyed")
+
+    visit '/projects/new'
+    fill_in 'project[name]', :with => "power"
+    click_on "Create Project"
+    click_on "Sign out"
+    User.create(first_name: 'admin', last_name: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true)
+    visit '/login'
+    fill_in 'email', :with => "admin@example.com"
+    fill_in 'password', :with => "password"
+    click_on "Login!"
+    visit "/users/"
+    click_on "power"
+    click_on "Edit"
+    click_on "Delete"
+    expect(page).to have_content("Project was successfully destroyed")
 
   end
 
@@ -95,19 +95,19 @@ describe 'Admin can CRUD everything of other users' do
     click_on "Create Task"
     click_on "Sign out"
 
-    # passes locally - can show, commenting out for now
-    # User.create(first_name: 'admin', last_name: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true)
-    # visit '/login'
-    # fill_in 'email', :with => "admin@example.com"
-    # fill_in 'password', :with => "password"
-    # click_on "Login!"
-    # visit "/users/"
-    # click_on "power"
-    # click_on "1 Tasks"
-    # click_on "Edit"
-    # fill_in 'task[description]', :with => "Elephant"
-    # click_on "Update Task"
-    # expect(page).to have_content("Task was successfully updated.")
+
+    User.create(first_name: 'admin', last_name: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true)
+    visit '/login'
+    fill_in 'email', :with => "admin@example.com"
+    fill_in 'password', :with => "password"
+    click_on "Login!"
+    visit "/users/"
+    click_on "power"
+    click_on "1 Tasks"
+    click_on "Edit"
+    fill_in 'task[description]', :with => "Elephant"
+    click_on "Update Task"
+    expect(page).to have_content("Task was successfully updated.")
 
   end
 
@@ -144,17 +144,17 @@ describe 'Admin can CRUD everything of other users' do
     click_on "Sign out"
 
 
-    # passes locally - can show, commenting out for now
-    # User.create(first_name: 'admin', last_name: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true)
-    # visit '/login'
-    # fill_in 'email', :with => "admin@example.com"
-    # fill_in 'password', :with => "password"
-    # click_on "Login!"
-    # visit "/users/"
-    # click_on "power"
-    # click_on "1 Tasks"
-    # click_link("destroy")
-    # expect(page).to have_content("Task was successfully destroyed.")
+
+    User.create(first_name: 'admin', last_name: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true)
+    visit '/login'
+    fill_in 'email', :with => "admin@example.com"
+    fill_in 'password', :with => "password"
+    click_on "Login!"
+    visit "/users/"
+    click_on "power"
+    click_on "1 Tasks"
+    click_link("destroy")
+    expect(page).to have_content("Task was successfully destroyed.")
 
   end
 
@@ -173,22 +173,22 @@ describe 'Admin can CRUD everything of other users' do
     end
     click_on "Sign out"
 
-    # passes locally - can show, commenting out for now
-    # User.create(first_name: 'admin', last_name: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true)
-    # visit '/login'
-    # fill_in 'email', :with => "admin@example.com"
-    # fill_in 'password', :with => "password"
-    # click_on "Login!"
-    # click_on "Users"
-    # click_on "Joe"
-    # click_on "Edit"
-    # fill_in 'user[first_name]', :with => "Monkey"
-    # fill_in 'user[last_name]', :with => "Cat"
-    #
-    # click_on "Update User"
-    #
-    # expect(page).to have_content("Monkey")
-    # expect(page).to have_content("Cat")
+    passes locally - can show, commenting out for now
+    User.create(first_name: 'admin', last_name: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true)
+    visit '/login'
+    fill_in 'email', :with => "admin@example.com"
+    fill_in 'password', :with => "password"
+    click_on "Login!"
+    click_on "Users"
+    click_on "Joe"
+    click_on "Edit"
+    fill_in 'user[first_name]', :with => "Monkey"
+    fill_in 'user[last_name]', :with => "Cat"
+
+    click_on "Update User"
+
+    expect(page).to have_content("Monkey")
+    expect(page).to have_content("Cat")
 
   end
 
@@ -207,16 +207,16 @@ describe 'Admin can CRUD everything of other users' do
     end
     click_on "Sign out"
 
-    # passes locally - can show, commenting out for now
-    # User.create(first_name: 'admin', last_name: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true)
-    # visit '/login'
-    # fill_in 'email', :with => "admin@example.com"
-    # fill_in 'password', :with => "password"
-    # click_on "Login!"
-    # click_on "Users"
-    # click_on "Joe"
-    # click_on "Edit"
-    # expect(page).to have_content("Admin")
+
+    User.create(first_name: 'admin', last_name: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true)
+    visit '/login'
+    fill_in 'email', :with => "admin@example.com"
+    fill_in 'password', :with => "password"
+    click_on "Login!"
+    click_on "Users"
+    click_on "Joe"
+    click_on "Edit"
+    expect(page).to have_content("Admin")
 
   end
 
