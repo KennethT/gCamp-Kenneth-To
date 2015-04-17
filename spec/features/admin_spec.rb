@@ -24,8 +24,8 @@ describe 'Admin can CRUD everything of other users' do
     fill_in 'email', :with => "admin@example.com"
     fill_in 'password', :with => "password"
     click_on "Login!"
-    visit "/users/"
-    click_on "power"
+    visit "/projects"
+    first(:link, "power").click 
     click_on "Edit"
     fill_in 'project[name]', :with => "ranger"
     click_on "Update Project"
