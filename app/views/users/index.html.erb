@@ -23,7 +23,10 @@
           <% if current_user == user %>
           <%= link_to 'Edit', edit_user_path(user), class: 'btn btn-info' %>
           <% end %>
-                    <%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %><% end %></td>
+          <% if admin_role %>
+          <%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %>
+          <% end %>
+          <% end %></td>
       </tr>
     <% end %>
   </tbody>
