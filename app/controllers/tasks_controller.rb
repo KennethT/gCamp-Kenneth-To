@@ -9,7 +9,7 @@ class TasksController < ApplicationController
   def projmember
     @task = Task.find(params[:id])
     @project = Project.find(params[:project_id])
-    unless @task.project.users.include?(current_user)
+    unless @task.project.users.include?(current_user) || admin_role
       redirect_to projects_path(@path), notice: "You do not have access to that project"
     end
   end
