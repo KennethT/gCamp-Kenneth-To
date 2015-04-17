@@ -19,7 +19,7 @@
         <td><% if current_user == user %>
           <%= mail_to current_user.email %>
           <% end %></td>
-        <td class="text-right"><% if current_user == user%>
+        <td class="text-right"><% if current_user == user || (user.memberships.map {|member| member.project_id})%>
           <%= link_to 'Edit', edit_user_path(user), class: 'btn btn-info' %>
                     <%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %><% end %></td>
       </tr>
