@@ -19,8 +19,9 @@
         <td><% if user.projects.any? {|project| project.users.include?(user)}%>
           <%= mail_to user.email %>
           <% end %></td>
-        <td class="text-right"><% if current_user == user || (user.memberships.map {|member| member.project_id})%>
-          <% if current_user == user %>
+        <td class="text-right">
+          <% if admin_role || current_user == user || (user.memberships.map {|member| member.project_id})%>
+          <% if admin_role || current_user == user %>
           <%= link_to 'Edit', edit_user_path(user), class: 'btn btn-info' %>
           <% end %>
           <% if admin_role %>
