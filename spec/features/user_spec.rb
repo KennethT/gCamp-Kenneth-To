@@ -61,6 +61,7 @@ describe 'User can CRUD users' do
     click_on "Sign Up"
     end
     visit '/users'
+    click_on "Edit"
     click_on "Delete"
 
     #after deleting yourself, you can't see the traditional error message
