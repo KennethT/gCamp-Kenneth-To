@@ -9,6 +9,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if current_user != @user
+      render :file => 'public/404.html', :status => :not_found, :layout => false
+    end
   end
 
   def edit
