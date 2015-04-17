@@ -19,7 +19,11 @@ class ProjectsController < ApplicationController
   end
 
   def index
+    if admin_role
+      @projects = Project.all
+    else
       @projects = current_user.projects
+    end
     end
 
     def show
