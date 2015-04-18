@@ -16,9 +16,15 @@
     <% @users.each do |user| %>
       <tr>
         <td><%=  link_to user.first_name, user %> <%= link_to user.last_name, user %></td>
-        <td><% if user.projects.any? {|project| project.users.include?(user)}%>
-          <%= mail_to user.email %>
-          <% end %></td>
+        <% if current_user == user %>
+        <td><%= mail_to user.email %></td>
+        <% elsif current_user.sameproject(user) %>
+        <td><%= mail_to user.email %></td>
+        <% elsif admin_role %>
+        <td><%= mail_to user.email %></td>
+        <% else %>
+        <td></td>
+        <% end %>
         <td class="text-right">
           <% if admin_role || current_user == user || (user.memberships.map {|member| member.project_id})%>
           <% if admin_role || current_user == user %>
