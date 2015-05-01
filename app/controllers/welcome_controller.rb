@@ -1,8 +1,7 @@
 class WelcomeController < ApplicationController
   def index
     @quotes = Hash.new
-    @quotes["gCamp has changed my life!  It's the best tool I've ever used."] = "Cayla Hayes"
-    @quotes["Before gCamp I was a disorderly slob. Now I'm more organized than I've ever been"] = "Leta Jaskolski"
-    @quotes["Don't hesitate - sign up right now! You'll never be the same."] = "Lavern Upton"
+    @quotes["Tasky is the greatest task management tool ever"] = "Ty H."
+    @quotes["I love tasky"] = "Alexandra H."
   end
 end
