@@ -2,7 +2,8 @@
 
 == README
 
-gCamp Project - Kenneth To
+Tasky - Kenneth To
+A task management tool.
 
 [View on Heroku](https://sheltered-meadow-5689.herokuapp.com/)
 
